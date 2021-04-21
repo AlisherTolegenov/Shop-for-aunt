@@ -1,0 +1,74 @@
+{% extends 'shop/index.html' %}
+{% load static %}
+
+{% block content %}
+<section>
+    <div class="container-xxl">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none">Главная</a></li>
+                <li class="breadcrumb-item"><a href="/shop/{{ current_category.pk }}/"class="text-decoration-none">{{ current_category }}</a></li>
+                <li class="breadcrumb-item"><a href="/shop/{{ current_category.pk }}/{{current_subcategory.pk}}/"class="text-decoration-none">{{ current_subcategory }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+                
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-3">
+                <div>
+                    <a href="#header" class="text-end text-decoration-none mynav">КАРТОЧКА ТОВАРА</a>
+                </div>
+                <div>
+                    <a href="#product_description" class="text-end text-muted text-decoration-none mynav">ОПИСАНИЕ
+                        ТОВАРА</a>
+                </div>
+                <div>
+                    <a href="#product_property" class="text-end text-muted text-decoration-none mynav">ХАРАКТЕРИСТИКИ</a>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="border-start">
+                    <div class="container p-0">
+                        <div class="row">
+                            <div class="col-5">
+                                <img src="{{ product.img.url }}" alt="" class="border rounded" id="product_image">
+                            </div>
+                            <div class="col-7">
+                                <h5 class="ps-4 text-lowercase"
+                                    style="font-family: 'Open Sans', sans-serif; color:rgb(56, 131, 223)">{{ product.title }}</h5>
+                                <h5 class="ps-4 mt-3" style="font-family: 'Open Sans', sans-serif;"> цвет: <span
+                                        class="text-muted" style="font-family: 'Open Sans', sans-serif;">белый</span>
+                                </h5>
+                                <h5 class="ps-4 mt-3"
+                                    style="font-family: 'Oswald', sans-serif; color:rgb(56, 131, 223)"><strong>{{ product.price }} </strong>
+                                    <span class="fs-4"> ₸ </span>/ <span class="fs-6">шт.</span></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container p-0 mt-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="pe-1 ps-1 fs-5"
+                                    style="color: white; background: rgb(45, 205, 245); font-family: Montserrat, sans-serif;"
+                                    id="product_description"><strong>описание товара</strong></span>
+                                <div class="fs-6 p-4" style="font-family: Montserrat, sans-serif;">{{ product.description }}</div>
+                                <span class="pe-1 ps-1 fs-5"
+                                    style="color: white; background: rgb(27, 58, 236); font-family: Montserrat, sans-serif;"
+                                    id="product_property"><strong>характеристики</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+{% block javascript %}
+
+{% endblock %}

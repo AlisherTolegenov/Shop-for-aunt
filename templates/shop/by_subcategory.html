@@ -1,0 +1,295 @@
+{% extends 'shop/index.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<section class="tabs">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none">Главная</a></li>
+            <li class="breadcrumb-item"><a href="/shop/{{ current_category.pk }}/" class="text-decoration-none">{{ current_category }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page" >{{ current_subcategory }}</li>
+        </ol>
+    </nav>
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-4">
+                <div>
+                    <!-- <a href="1" class="sort1" id="click-block-vozr">По возрастанию</a>
+                    <a href="1" class="sort2" id="click-block-ubiv">По убыванию</a> -->
+                    <div class="card">
+                        <article class="card-group-item">
+                            <header class="card-header">
+                                <h6 class="title">Фильтры</h6>
+                            </header>
+                            <div class="filter-content">
+                                <div class="card-body">
+                                <div class="row">
+                                <div class="form-group col-md-6">
+                                  <label>Min</label>
+                                  <input type="number" class="form-control" id="inputEmail4" placeholder="0 тг">
+                                </div>
+                                <div class="form-group col-md-6 text-right">
+                                  <label>Max</label>
+                                  <input type="number" class="form-control" placeholder="1,0000 тг">
+                                </div>
+                                </div>
+                                </div> <!-- card-body.// -->
+                            </div>
+                        </article> <!-- card-group-item.// -->
+                        <article class="card-group-item">
+                            <header class="card-header">
+                                <h6 class="title">Подвыборка</h6>
+                            </header>
+                            <div class="filter-content">
+                                <div class="card-body">
+                                    <div class="custom-control custom-checkbox">
+                                      
+                                          <input type="checkbox" class="custom-control-input" id="Check1">
+                                          <label class="custom-control-label" for="Check1">Для донеров</label>
+                                    </div> <!-- form-check.// -->
+                    
+                                    <div class="custom-control custom-checkbox">
+                                        
+                                          <input type="checkbox" class="custom-control-input" id="Check2">
+                                         <label class="custom-control-label" for="Check2">Для бургеров</label>
+                                    </div> <!-- form-check.// -->
+                    
+                                    <div class="custom-control custom-checkbox">
+                                        
+                                          <input type="checkbox" class="custom-control-input" id="Check3">
+                                          <label class="custom-control-label" for="Check3">Пакеты</label>
+                                    </div> <!-- form-check.// -->
+                    
+                                    <div class="custom-control custom-checkbox">
+                                        
+                                          <input type="checkbox" class="custom-control-input" id="Check4">
+                                          <label class="custom-control-label" for="Check4">С замком</label>
+                                    </div> <!-- form-check.// -->
+                                </div> <!-- card-body.// -->
+                            </div>
+                        </article> <!-- card-group-item.// -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-9">
+                            <h2>{{ current_subcategory.name }}</h2>
+                        </div>
+
+                        <div class="col-3">
+                            
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Сортировать
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a href="1" class="sort1 page-link active" id="click-block-vozr">По возрастанию</a></li>
+                                    <li><a href="1" class="sort2 page-link active">По убыванию</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row" id="posts">
+<!-- 
+                        {% for pr in first_page %}
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 p-1">
+                            <div class="card h-100">
+                                <img src="{{ pr.img.url }}" class="card-img-top" alt="...">
+                                <div class="card-body text-end">
+                                    <h5 class="card-text someprice">{{ pr.price }} Т/шт</h5>
+                                </div>
+                                <div class="card-body border-top h-100 productname">
+                                    <p class="card-text text-white bg-none sometitle">{{ pr.title }}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        {% endfor %} -->
+
+                    </div>
+                </div>
+                <div>
+
+                </div>
+                <div>
+                    <nav aria-label="...">
+                        <ul class="pagination" id="pag">
+                            <!-- <li class="page-item active" aria-current="page"></li>
+                        <a href="1" class="sss page-link" id="click-block">Предыдущая</a>
+                        </li>  -->
+
+                            {% for i in page_range %}
+
+                            <li class="page-item active" aria-current="page"></li>
+                            <a href="{{i}}" class="page-link sort1" id="by_sort">{{i}}</a>
+                            </li>
+
+                            {% endfor %}
+
+
+                            <!-- <li class="page-item">
+                                <a class="page-link" href="2">Следующая</a>
+                            </li> -->
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <section>
+
+        <!-- <li class="page-item active" aria-current="page"></li>
+                        <a href="1" class="sss page-link" id="click-block">Предыдущая</a>
+                        </li> -->
+
+                <div id="test">
+
+                </div>
+    </section>
+
+</section>
+
+<section>
+
+
+
+
+    </div>
+</section>
+
+
+<!-- <section>
+
+   
+   
+</section> -->
+{% endblock %}
+
+
+{% block javascript %}
+
+<script>
+
+
+    $(document).ready(function () { // функция будет выполнена при полной загрузке страницы
+
+        setTimeout(function () { // если нужно устанавливаем задержку выполнения действия
+
+            $('#click-block-vozr').click(); // имитируем нажатие кнопкой мишы на блок
+        }); // время задержки в милисикундах
+    });
+
+
+
+    var elem = document.getElementsByClassName('sort1')
+    $(elem).click(function (event) {
+        event.preventDefault();
+        
+       
+        
+
+
+        var page_n = $(this).attr('href');
+        // ajax
+        $.ajax({
+            type: "POST",
+            url: "{% url 'by_subcategory' current_category.pk current_subcategory.pk %}", // name of url
+            data: {
+                page_n: page_n, //page_number
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+            },
+            success: function (resp) {
+                //loop
+                $('#posts').html('')
+                $.each(resp.in_ascending_order, function (i, val) {
+
+                    //apending posts
+                    $('#posts').append('<div class="col-12 col-sm-6 col-md-6 col-lg-4 p-1">' +
+                        '<div class="card h-100">' + '<a href="{% url "by_subcategory" current_category.pk current_subcategory.pk %}' + val.id + '" alt="...." class="text-decoration-none">' + '<img class="card-img-top" alt="..." src="{% static "" %}' + val.img + '">' +
+                        '<div class="card-body text-end">' +
+                        '<h5 class="card-text someprice" style="font-family: Montserrat, sans-serif;">' + '<strong>' + 
+                        val.price + '</strong>' + 
+                        '<span class="fs-4"> ₸ </span>'  + '/ шт' +
+                        '</h5>' +
+                        '</div>' +
+                        '</a>' +
+                        '<div class="card-body border-top h-100 productname">' +
+                        '<p class="card-text text-white bg-none sometitle">' + val.title + '</p>'
+                        + '</div>'
+                        + '</div>'
+                        + '</div>')
+              
+                })
+                
+              
+                
+
+            },
+
+            error: function () { }
+        }); 
+
+    });
+
+
+    var elem2 = document.getElementsByClassName('sort2')
+    $(elem2).click(function (event) {
+        event.preventDefault();
+       
+        var page_n = $(this).attr('href');
+        // ajax
+        $.ajax({
+            type: "POST",
+            url: "{% url 'by_subcategory' current_category.pk current_subcategory.pk %}", // name of url
+            data: {
+                page_n: page_n, //page_number
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+            },
+            success: function (resp) {
+                //loop
+                $('#posts').html('')
+                $.each(resp.in_descending_order, function (i, val) {
+
+                    //apending posts
+                    $('#posts').append('<div class="col-12 col-sm-6 col-md-6 col-lg-4 p-1">' +
+                        '<div class="card h-100">' + '<a href="{% url "by_subcategory" current_category.pk current_subcategory.pk %}' + val.id + '" alt="...." class="text-decoration-none">' + '<img class="card-img-top" alt="..." src="{% static "" %}' + val.img + '">' +
+                        '<div class="card-body text-end">' +
+                        '<h5 class="card-text someprice" style="font-family: Montserrat, sans-serif;">' + '<strong>' + 
+                        val.price + '</strong>' + 
+                        '<span class="fs-4"> ₸ </span>'  + '/ шт' +
+                        '</h5>' +
+                        '</div>' +
+                        '</a>' +
+                        '<div class="card-body border-top h-100 productname">' +
+                        '<p class="card-text text-white bg-none sometitle">' + val.title + '</p>'
+                        + '</div>'
+                        + '</div>'
+                        + '</div>')
+                    
+
+
+
+                });
+               
+
+            },
+            error: function () { }
+        }); // 
+
+    });
+</script>
+
+{% endblock %}

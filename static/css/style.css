@@ -1,0 +1,115 @@
+
+
+html{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.carousel-first {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+img{
+    max-width: 100%;
+}
+
+.categor{
+    position: relative;
+}
+
+.dr{
+    position: static;
+}
+
+.dr:hover > .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 270px;
+    width: 700px;
+    background-color: #f7a75c;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+    
+}
+
+
+
+
+
+
+.tabs{
+    padding: 15px 30px;
+    background-color: rgba(235, 229, 229, 0.5);
+}
+
+
+.nav-tabs-border-radius{
+    border-radius: 50px;
+}
+
+.someshadow:hover {
+    box-shadow: 0px 0px 5x rgba(29, 207, 74, 0.8);
+    
+}
+
+.someproduct{
+    text-decoration: none;
+    color: black;
+}
+
+.navlink{
+    background-color: #f7a75c !important;
+}
+
+
+.footer-container{
+    background-color: white;
+    padding: 35px;
+}
+
+.footer-links{
+    text-decoration: none;
+    color: black;
+}
+
+.footer-list{
+    list-style: none;
+}
+
+.footer-icons{
+    display: inline-block;
+    padding: 3px;
+}
+
+
+
+
+
+.scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    
+}
+.card {
+      flex: 0 0 auto;
+}
+
+/* 
+.card-body{
+    height: 200px;
+} */
+
+.productname{
+    background: rgb(14, 14, 112);
+}
+
+
+.mynav{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
