@@ -1,7 +1,9 @@
 
 
+
 html{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif; 
+   
 }
 
 
@@ -28,7 +30,6 @@ img{
     top: 0;
     height: 270px;
     width: 700px;
-    background-color: #f7a75c;
     padding-left: 15px;
     padding-top: 15px;
     font-size: 20px;
@@ -50,19 +51,22 @@ img{
     border-radius: 50px;
 }
 
-.someshadow:hover {
-    box-shadow: 0px 0px 5x rgba(29, 207, 74, 0.8);
-    
-}
+
 
 .someproduct{
     text-decoration: none;
     color: black;
 }
 
-.navlink{
-    background-color: #f7a75c !important;
+.someproduct:hover{
+    color: black !important;
 }
+
+.someshadow:hover{
+    box-shadow: 1px 1px 3px #0d6efd;
+}
+
+
 
 
 .footer-container{
@@ -113,3 +117,59 @@ img{
     align-items: flex-end;
     justify-content: end;
 }
+
+.category-heading{
+    background: #303030 none repeat scroll 0 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    padding: 10px 10px 10px 30px;
+    position: relative;
+    text-transform: uppercase;
+    transition: all .3s ease 0s;
+   
+}
+
+.category-heading:hover{
+    color:#ff4136;
+    
+   
+}
+
+
+.category-title{
+    font-variant-ligatures: common-ligatures;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.dr a:hover{
+    color:#ff4136;
+    background-color: #f9f9f9;
+}
+
+.dr a{
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    background-color: #fff;
+    transition: all .3s ease 0s;
+}
+
+
+.whatsapp-button{
+    
+        background: none repeat scroll 0 0;
+        font-weight: normal;
+        letter-spacing: 1px;
+        position: relative;
+        text-transform: uppercase;
+        transition: all .3s ease 0s;
+       
+    
+}
+

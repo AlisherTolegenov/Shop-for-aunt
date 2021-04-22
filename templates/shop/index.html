@@ -14,13 +14,13 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
-  <script
-			  src="https://code.jquery.com/jquery-3.6.0.js"
-			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-			  crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -30,13 +30,13 @@
       <div class="container-xxl">
         <a class="navbar-brand" href="{% url 'home' %}">ZhannaShop</a>
         <!-- position-absolute top-0 start-50 translate-middle-x -->
-       
+
         <h5 class="footer-icons ps-6 mt-2"><i class="bi bi-whatsapp">87477762354</i></h5>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <!-- <li class="nav-item">
@@ -51,7 +51,7 @@
             <button class="btn btn-outline-success" type="submit">Искать</button>
           </form>
         </div>
-        
+
       </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,8 +68,9 @@
               <button class="btn w-100 text-start" type="button" id="dropdownMenuButton{{ cat.pk }}"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 {{ cat.name }}
+                <i class="bi bi-chevron-right float-end"></i>
               </button>
-
+              
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ cat.pk }}">
                 {% for subcat in subcategory %}
@@ -106,46 +107,52 @@
   {% block content %}
   <!-- categories -->
   <section>
-    <div class="container-xxl">
+    <div class="container-xxl px-4">
       <div class="row justify-content-center no-gutters">
 
-        <div class="col-lg-5 d-none d-sm-none d-md-none d-lg-block pe-0 m-0 categor">
-          {% for cat in category %}
+        <div class="col-lg-4 d-none d-sm-none d-md-none d-lg-block px-3 m-0 categor">
           
-          <div class="dropdown dropend dr">
+          <div class="category-heading">
             
+            <h6 class="category-title"><i class="fas fa-bars me-2"></i>Категория товаров</h6>
+          </div>
+          {% for cat in category %}
+
+          <div class="dropdown dropend dr px-2">
+
             <!-- {% if cat.pk == 1 %}
           <i class="bi bi-bag"></i>
           {% elif cat.pk == 2 %}
           <i class="bi bi-display"></i>
           {% endif %} -->
-          
-            <a href="shop/{{cat.pk}}/" class="btn ps-0 pb-2 w-100 text-start" type="button" id="dropdownMenuButton{{ cat.pk }}"
-               aria-expanded="false">
-               <!-- data-bs-toggle="dropdown" -->
+
+            <a href="shop/{{cat.pk}}/" class="btn px-2 w-100 text-start" type="button"
+              id="dropdownMenuButton{{ cat.pk }}" aria-expanded="false">
+              <!-- data-bs-toggle="dropdown" -->
               {{ cat.name }}
               
-              <i class="bi bi-chevron-right float-end"></i>
+
+              <i class="fas fa-angle-right float-end"></i>
             </a>
-          
+
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ cat.pk }}">
 
               {% for subcat in subcategory %}
               {% if subcat.category.pk == cat.pk %}
-              <li><a class="dropdown-item" href="{% url 'by_subcategory' cat.pk subcat.pk %}">{{ subcat.name }}</a></li>
+              <li><a class="dropdown-item" href="{% url 'by_subcategory' cat.pk subcat.pk %}" style="font-family: 'Poppins', sans-serif;">{{ subcat.name }}</a></li>
               {% endif %}
               {% endfor %}
             </ul>
 
           </div>
-        
+
           {% endfor %}
 
         </div>
         <!-- end categories -->
         <!-- start carousel -->
-        <div class="col-lg-7 d-none d-sm-none d-md-none d-lg-block m-0 ps-1">
+        <div class="col-lg-8 d-none d-sm-none d-md-none d-lg-block m-0 ps-1">
           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -157,13 +164,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{% static 'image/akcia.png' %}" class="d-block w-100" alt="...">
+                <img src="{% static 'image/main1.jpeg' %}" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="{% static 'image/akcia.png' %}" class="d-block w-100" alt="...">
+                <img src="{% static 'image/main2.jpeg' %}" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="{% static 'image/akcia.png' %}" class="d-block w-100" alt="...">
+                <img src="{% static 'image/main1.jpeg' %}" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -191,13 +198,13 @@
 
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item col col-xs-6 col-sm-6 col-md-auto p-2 " role="presentation">
-              <button class="nav-link active w-100 navlink" id="pills-popular-tab" data-bs-toggle="pill"
+              <button class="nav-link active w-100 navlink border" id="pills-popular-tab" data-bs-toggle="pill"
                 data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular"
                 aria-selected="true">Популярные и новинки</button>
             </li>
             {% for cat_first_three in category_first_three %}
-            <li class="nav-item col col-xs-6 col-sm-6 col-md-auto p-2 " role="presentation">
-              <button class="nav-link w-100 navlink" id="pills-{{cat_first_three.pk}}-tab" data-bs-toggle="pill"
+            <li class="nav-item col col-xs-6 col-sm-6 col-md-auto p-2" role="presentation">
+              <button class="nav-link w-100 navlink border" id="pills-{{cat_first_three.pk}}-tab" data-bs-toggle="pill"
                 data-bs-target="#pills-{{cat_first_three.pk}}" type="button" role="tab"
                 aria-controls="pills-{{cat_first_three.pk}}" aria-selected="true">{{ cat_first_three.name }}</button>
             </li>
@@ -221,12 +228,13 @@
               {% for pr in product_rating %}
 
               <div class="col-6 col-lg-2 col-md-4 col-sm-4 p-0 card someshadow">
-                <a href="{% url 'product_page' pr.subcategory.category.pk pr.subcategory.pk pr.pk %}" class="someproduct">
+                <a href="{% url 'product_page' pr.subcategory.category.pk pr.subcategory.pk pr.pk %}"
+                  class="someproduct h-100">
                   <img src="{{ pr.img.url }}" class="card-img-top" alt="">
                   <div class="card-body">
-                   
+
                     <h6 class="card-title text-end" style="font-family: 'Oswald', sans-serif;"><strong>{{ pr.price }}</strong> <span class="fs-5">₸</span>/шт</h6>
-                    <h6 class="card-title" style="font-family: Montserrat, sans-serif;">{{ pr.title }}</h6>
+                    <h6 class="card-title">{{ pr.title }}</h6>
                   </div>
                 </a>
               </div>
@@ -245,13 +253,13 @@
 
               {% for pr in product %}
               {% if pr.subcategory.category.name == cat_first_three.name %}
-              <div class="col-6 col-lg-2 col-md-4 col-sm-4 p-0 p-0 card someshadow">
-                <a href="{% url 'product_page' cat_first_three.pk pr.subcategory.pk pr.pk %}" class="someproduct">
+              <div class="col-6 col-lg-2 col-md-4 col-sm-4 p-0 card someshadow">
+                <a href="{% url 'product_page' cat_first_three.pk pr.subcategory.pk pr.pk %}" class="someproduct h-100">
                   <img src="{{ pr.img.url }}" class="card-img-top" alt="">
                   <div class="card-body">
-                    
+
                     <h6 class="card-title text-end" style="font-family: 'Oswald', sans-serif;"><strong>{{ pr.price }}</strong> <span class="fs-5">₸</span> /шт</h6>
-                    <h6 class="card-title" style="font-family: Montserrat, sans-serif;">{{ pr.title }}</h6>
+                    <h6 class="card-title">{{ pr.title }}</h6>
                   </div>
                 </a>
               </div>
@@ -283,12 +291,12 @@
           {% for pr in product_rating_order %}
 
           <div class="col-6 col-lg-2 col-md-4 col-sm-4 p-0 card someshadow">
-            <a href="{% url 'product_page' pr.subcategory.category.pk pr.subcategory.pk pr.pk %}" class="someproduct">
+            <a href="{% url 'product_page' pr.subcategory.category.pk pr.subcategory.pk pr.pk %}" class="h-100 someproduct">
               <img src="{{ pr.img.url }}" class="card-img-top" alt="">
               <div class="card-body">
-                
+
                 <h6 class="card-title text-end" style="font-family: 'Oswald', sans-serif;"><strong>{{ pr.price }}</strong> <span class="fs-5">₸</span>/шт</h6>
-                <h6 class="card-title" style="font-family: Montserrat, sans-serif;">{{ pr.title }}</h6>
+                <h6 class="card-title">{{ pr.title }}</h6>
               </div>
             </a>
           </div>
@@ -299,7 +307,8 @@
       </div>
     </section>
     <!-- end section of much sold product -->
-    
+
+   
 
     {% endblock %}
 
@@ -318,7 +327,9 @@
             <p><strong>Мы в соцсетях</strong></p>
             <h4 class="footer-icons"><i class="bi bi-youtube"></i></h4>
             <h4 class="footer-icons"><i class="bi bi-telegram"></i></h4>
+            <a href="https://api.whatsapp.com/send/?phone=+77789671143">
             <h4 class="footer-icons"><i class="bi bi-whatsapp"></i></h4>
+            </a>
             <h4 class="footer-icons"><i class="bi bi-instagram"></i></h4>
           </div>
 
@@ -358,7 +369,7 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  
+
     {% block javascript %}
     {% endblock %}
 
